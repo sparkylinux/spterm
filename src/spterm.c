@@ -1,4 +1,5 @@
 /*
+ * spterm forked from k3rmit by pavroo <pavroo@onet.eu> May 16, 2020
  * k3rmit, a VTE-based terminal emulator that aims to be simple, fast and effective.
  * Copyright (C) 2019 by orhun <https://www.github.com/orhun>
  *
@@ -666,12 +667,12 @@ static int parseArgs(int argc, char **argv) {
                 /* Show version information */
                 fprintf(stderr, 
                     "%s [ %sspterm%s ] ~ v%s \n"
-                    "   (+)(+)   ~ forked from k3rmit\r\n"
+                    "  ========  ~ forked from k3rmit\r\n"
                     "   (+)(+)   ~ VTE-based\r\n"
                     "  /      \\  ~ simple\r\n"
                     "  \\ -==- /  ~ fast\r\n"
                     "   \\    /   ~ effective\r\n"
-                    "  <\\/\\/\\/>  ~ github.com/orhun/k3rmit\r\n"
+                    "  <\\/\\/\\/>  ~ github.com/sparkylinux/spterm\r\n"
                     "  /      \\  ~ gplv3%s\n",
                     TERM_ATTR_BOLD, TERM_ATTR_COLOR,
                     TERM_ATTR_DEFAULT, TERM_VERSION,
@@ -680,8 +681,8 @@ static int parseArgs(int argc, char **argv) {
             case 'h': /* Fallthrough */
             case '?':
                 /* Show help message */
-                fprintf(stderr, "%s[ %susage%s ] %s [-h] "
-                "[-v] [-d] [-c config] [-t title] [-e command]%s\n",
+                 fprintf(stderr, "%s[ %susage%s ] %s:%s spterm [-h] "
+                "[-v] [-d] [-c config] [-t title] [-e command]\n",
                     TERM_ATTR_BOLD,
                     TERM_ATTR_COLOR,  
                     TERM_ATTR_DEFAULT,

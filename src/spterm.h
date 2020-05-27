@@ -1,4 +1,5 @@
 /*
+ * spterm forked from k3rmit by pavroo <pavroo@onet.eu> May 16, 2020
  * k3rmit, a VTE-based terminal emulator that aims to be simple, fast and effective.
  * Copyright (C) 2019 by orhun <https://www.github.com/orhun>
  *
@@ -18,7 +19,7 @@
 
 #include <vte/vte.h>
 #define TERM_NAME "Sparky Terminal"
-#define TERM_VERSION "0.1.1"
+#define TERM_VERSION "0.1.2"
 #define TERM_FONT "Monospace"
 #define TERM_FONT_DEFAULT_SIZE 10
 #define TERM_LOCALE "en_US.UTF-8"

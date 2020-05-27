@@ -1,21 +1,12 @@
 # spterm forked from k3rmit by pavroo <pavroo@onet.eu> May 16, 2020
 
-# k3rmit [![Release](https://img.shields.io/github/release/orhun/k3rmit.svg?color=5B7C33&style=flat-square)](https://github.com/orhun/k3rmit/releases) [![AUR](https://img.shields.io/aur/version/k3rmit.svg?color=5B7C33&style=flat-square)](https://aur.archlinux.org/packages/k3rmit/)
-
 ### A VTE-based terminal emulator that aims to be simple, fast and effective.
 
-![Kermit the Frog](https://user-images.githubusercontent.com/24392180/59636824-2af20180-915d-11e9-95dd-0a077ebc3cfa.gif)
-
-[VTE](https://developer.gnome.org/vte/) is a [GTK](https://developer.gnome.org/gtk3/3.0/) widget that allows creating a virtual terminal emulator which is used in many emulators such as [GNOME Terminal](https://help.gnome.org/users/gnome-terminal/stable/), [ROXTerm](https://github.com/realh/roxterm) and [evilvte](http://www.calno.com/evilvte/). Although there's a lot of (VTE-based and other) terminal emulator options for GNU/Linux users, `k3rmit` tries to differ from them with its simplicity.   
-The project inspired by [Vincent Bernat](https://vincent.bernat.ch/en)'s [article](https://vincent.bernat.ch/en/blog/2017-write-own-terminal) and also his [implementation](https://github.com/vincentbernat/vbeterm) of a custom VTE-based terminal. Also, [Rxvt](https://wiki.archlinux.org/index.php/Rxvt-unicode) and [termite](https://github.com/thestinger/termite)'s appearance are taken as an example.
+[VTE](https://developer.gnome.org/vte/) is a [GTK](https://developer.gnome.org/gtk3/3.0/) widget that allows creating a virtual terminal emulator which is used in many emulators such as [GNOME Terminal](https://help.gnome.org/users/gnome-terminal/stable/), [ROXTerm](https://github.com/realh/roxterm) and [evilvte](http://www.calno.com/evilvte/).
 
 ## Installation
 
-`k3rmit` terminal depends on [vte3](https://www.archlinux.org/packages/extra/x86_64/vte3/) and [gtk3](https://www.archlinux.org/packages/extra/x86_64/gtk3/) packages.
-
-### • AUR
-* [k3rmit](https://aur.archlinux.org/packages/k3rmit/)
-* [k3rmit-git](https://aur.archlinux.org/packages/k3rmit-git/)
+`spterm` terminal depends on [vte3](https://www.archlinux.org/packages/extra/x86_64/vte3/) and [gtk3](https://www.archlinux.org/packages/extra/x86_64/gtk3/) packages.
 
 ### • CMake
 
@@ -38,21 +29,21 @@ sudo make install
 
 ```
 cd src/
-gcc -s -O3 -Wall -Wno-deprecated-declarations $(pkg-config --cflags vte-2.91) k3rmit.c -o\
- k3rmit.o $(pkg-config --libs vte-2.91)
+gcc -s -O3 -Wall -Wno-deprecated-declarations $(pkg-config --cflags vte-2.91) spterm.c -o\
+ spterm.o $(pkg-config --libs vte-2.91)
 ```
 
 ## Features
 
 * Use default shell (with `$SHELL` environment variable)
-* Supports transparency with a composite manager (such as [compton](https://github.com/chjj/compton))
+* Supports transparency with a composite manager (such as [compton](https://github.com/chjj/compton) or [picom] (https://github.com/yshui/picom))
 * Tab support
 * Customizable
 
 ## Arguments
 
 ```
-k3rmit [-h] [-v] [-d] [-c config] [-t title] [-e command]
+spterm [-h] [-v] [-d] [-c config] [-t title] [-e command]
 -h, show help message and exit
 -v, show version
 -d, enable debug messages
@@ -87,7 +78,7 @@ k3rmit [-h] [-v] [-d] [-c config] [-t title] [-e command]
 
 ### Config File
 
-`k3rmit` looks for configuration file in `~/.config/k3rmit.conf`  
+`spterm` looks for configuration file in `~/.config/spterm.conf`  
 The default configuration file is available [here](https://github.com/orhun/k3rmit/blob/master/.config/k3rmit.conf).  
 Most of the settings can be changed via the config file including font, opacity and colors.
 
@@ -97,7 +88,7 @@ Terminal theme can be changed with either editing the config file manually or us
 
 ### Font
 
-`k3rmit` uses a [PangoFontDescription](https://developer.gnome.org/pygtk/stable/class-pangofontdescription.html) which retrieved from the `k3rmit.conf` for changing the font family, style and size. The configuration entry format of the font and some examples are shown below and the default value is `monospace 9`.
+`spterm` uses a [PangoFontDescription](https://developer.gnome.org/pygtk/stable/class-pangofontdescription.html) which retrieved from the `k3rmit.conf` for changing the font family, style and size. The configuration entry format of the font and some examples are shown below and the default value is `monospace 9`.
 
 ```
 font [FAMILY-LIST] [STYLE-OPTIONS] [SIZE]
@@ -152,29 +143,7 @@ vte-terminal {
 }
 ```
 
-The command below can be used to create both configuration files.
-
-```
-curl https://raw.githubusercontent.com/orhun/k3rmit/master/.config/k3rmit.conf --output ~/.config/k3rmit.conf && \
-printf "VteTerminal,\nTerminalScreen,\nvte-terminal {\n\tpadding: 3px 2px 2px 1px;\n}\n" > ~/.config/gtk-3.0/gtk.css
-```
-
-## Screenshots
-
-![Screenshot I](https://user-images.githubusercontent.com/24392180/66824998-10386980-ef52-11e9-92c0-7510338b71b7.gif)
-
-![Screenshot II](https://user-images.githubusercontent.com/24392180/66824530-242f9b80-ef51-11e9-8c07-76b5c691e97c.png)
-
-![Screenshot III](https://user-images.githubusercontent.com/24392180/59703686-1a946200-9203-11e9-8043-e58dcc9edc64.png)
-
-## TODO(s)
-
-• URL handling
-
 ## License
 
 GNU General Public License ([v3](https://www.gnu.org/licenses/gpl.txt))
 
-## Copyright
-
-Copyright (c) 2019-2020, [orhun](https://www.github.com/orhun)
